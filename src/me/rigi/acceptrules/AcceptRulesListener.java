@@ -14,8 +14,11 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 public class AcceptRulesListener implements Listener {
 
+    AcceptRulesMain plugin;
+
 	@EventHandler
-	public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event){
+	public void onPlayerCommandPreprocess(AcceptRulesMain p, PlayerCommandPreprocessEvent event){
+            plugin = p;
 			Player player = event.getPlayer();
 			String cmd = event.getMessage();
 			String[] args = event.getMessage().split(" ");
@@ -52,7 +55,7 @@ public class AcceptRulesListener implements Listener {
 			if(AcceptRulesMain.Inform==true){
 				final Player player = event.getPlayer();
 				
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(new AcceptRulesMain(), new Runnable() {
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
 				    public void run() {
 				    	player.sendMessage(AcceptRulesMain.InformMsg.replaceAll("&([a-f0-9])", ChatColor.COLOR_CHAR + "$1"));
 				    }
