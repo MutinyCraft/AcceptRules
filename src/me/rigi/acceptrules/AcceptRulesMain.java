@@ -73,7 +73,7 @@ public class AcceptRulesMain extends JavaPlugin {
 		AcceptRulesPreferences.UserReader();
 		AcceptRulesPreferences.RulesReader();
 
-		pm.registerEvents(new AcceptRulesListener(), this);	
+		pm.registerEvents(new AcceptRulesListener(this), this);
 		getCommand("acceptrules").setExecutor(new acceptrulesCmdExecutor(this));
 		Log.info("[AcceptRules] AcceptRules plugin succesfully enabled!");
 	}

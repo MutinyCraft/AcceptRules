@@ -16,6 +16,10 @@ public class AcceptRulesListener implements Listener {
 
     AcceptRulesMain plugin;
 
+    public AcceptRulesListener(AcceptRulesMain p){
+        plugin = p;
+    }
+
 	@EventHandler
 	public void onPlayerCommandPreprocess(AcceptRulesMain p, PlayerCommandPreprocessEvent event){
             plugin = p;
